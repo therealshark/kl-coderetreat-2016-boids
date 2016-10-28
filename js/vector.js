@@ -20,6 +20,17 @@ var Vector = (function(){
     );
   };
 
+  Vector.prototype.subtract = function(other, result) {
+    return (result || new Vector()).set(
+      this.x - other.x,
+      this.y - other.y
+    );
+  };
+
+  Vector.prototype.distance = function(other) {
+    return this.subtract(other).length();
+  };
+
   Vector.prototype.multiplyScalar = function(scalar, result) {
     return (result || new Vector()).set(
       this.x * scalar,
@@ -49,6 +60,10 @@ var Vector = (function(){
   Vector.prototype.normalize = function(result) {
     var scalar = 1 / this.length();
     return this.multiplyScalar(scalar, result);
+  };
+
+  Vector.prototype.negate = function(result) {
+    return this.multiplyScalar(-1, result);
   };
 
   Vector.prototype.toString = function(){

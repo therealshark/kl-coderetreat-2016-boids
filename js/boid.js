@@ -2,7 +2,7 @@
 
 var Boid = (function(){
   function Boid(position, speed){
-    this.position = position || new Vector(400, 300);
+    this.position = position || new Vector(400 + Math.random() * 10 - 5, 300 + Math.random() * 10 - 5);
     this.speed = speed || new Vector(Math.random() * 2 -1, Math.random() * 2 -1);
   }
 
@@ -11,6 +11,10 @@ var Boid = (function(){
     // calculate influences
 
     this.position.add(this.speed, this.position);
+    this.position.set(
+      this.position.x % 800,
+      this.position.y % 600
+    );
   };
 
   Boid.prototype.updateDirection = function() {
