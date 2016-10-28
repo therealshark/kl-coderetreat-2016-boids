@@ -1,3 +1,5 @@
+'use strict';
+
 var Boid = (function(){
   function Boid(simulation, position, speed){
     this.simulation = simulation;
@@ -34,4 +36,4 @@ var Boid = (function(){
   return Boid;
 })();
 
-exports.Boid = Boid;
+(exports || {}).Boid = Boid;
