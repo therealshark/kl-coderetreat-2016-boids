@@ -3,12 +3,12 @@
 var Boid = (function(){
   function Boid(position, speed){
     this.position = position || new Vector(400 + Math.random() * 10 - 5, 300 + Math.random() * 10 - 5);
-    this.speed = speed || new Vector(Math.random() * 2 -1, Math.random() * 2 -1);
+    this.speed = speed || new Vector(Math.random()  -0.5, Math.random() -0.5);
   }
 
   Boid.prototype.tick = function(boids) {
     var influencers = this.getInfluencers(boids);
-    // calculate influences
+    this.speed = this.updateSpeed(influencers);
 
     this.position.add(this.speed, this.position);
     this.position.set(
@@ -17,8 +17,13 @@ var Boid = (function(){
     );
   };
 
-  Boid.prototype.updateDirection = function() {
-
+  Boid.prototype.updateSpeed = function(influencers) {
+    //console.log(this.calculateSeperation(influencers));
+    var speed = this.speed.add(this.calculateSeperation(influencers).multiplyScalar(0.01));
+    if(speed.length() > 3/2){
+      speed = speed.normalize(speed).multiplyScalar(3/2, speed);
+    }
+    return speed;
   };
 
   Boid.prototype.getInfluencers = function(boids) {
@@ -26,7 +31,10 @@ var Boid = (function(){
   };
 
   Boid.prototype.calculateSeperation = function(influencers){
-
+    return influencers
+      .filter(influencer => influencer.position.distance(this.position) <= 20)
+      .map(influencer => this.position.subtract(influencer.position).multiplyScalar(0.2))
+      .reduce((curr, before) => curr.add(before), new Vector(0, 0));
   };
 
   Boid.prototype.calculateCohesion = function(influencers) {
