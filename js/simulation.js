@@ -25,8 +25,9 @@ var Simulation = (function(){
 
   function initialize() {
     // Creating some boids
-    for(var i = 0; i < 10; i++){
-      boids.push(new Boid());
+    for(var i = 0; i < 18; i++){
+      var angle = (Math.PI / 9) * i;
+      boids.push(new Boid(new Vector(400, 300), new Vector(Math.sin(angle) * 0.1, -Math.cos(angle) * 0.1)));
     }
     Renderer.initialize();
     run();
