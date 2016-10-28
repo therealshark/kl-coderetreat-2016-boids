@@ -13,7 +13,8 @@ var Renderer = (function(){
   }
 
   return {
-    
+    initialize: initialize,
+    render: render
   };
 })();
 
