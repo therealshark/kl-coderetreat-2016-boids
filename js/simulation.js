@@ -1,3 +1,5 @@
+'use strict';
+
 var Simulation = (function(){
 
   return {
@@ -5,4 +7,4 @@ var Simulation = (function(){
   };
 })();
 
-exports.Simulation = Simulation;
+(exports || {}).Simulation = Simulation;

@@ -1,3 +1,5 @@
+'use strict';
+
 var Vector = (function(){
   function Vector(x, y){
     this.x = x;
@@ -53,4 +55,4 @@ var Vector = (function(){
   return Vector;
 })();
 
-exports.Vector = Vector;
+(exports || {}).Vector = Vector;

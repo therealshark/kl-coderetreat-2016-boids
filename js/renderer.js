@@ -1,3 +1,5 @@
+'use strict';
+
 var Renderer = (function(){
 
   return {
@@ -5,4 +7,4 @@ var Renderer = (function(){
   };
 })();
 
-exports.Renderer = Renderer;
+(exports || {}).Renderer = Renderer;
