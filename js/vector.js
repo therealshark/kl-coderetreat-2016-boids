@@ -31,7 +31,7 @@ var Vector = (function(){
 
   Vector.prototype.normalize = function(result) {
     var scalar = 1 / this.length();
-    return (result || new Vector()).multiplyScalar(scalar);
+    return this.multiplyScalar(scalar, result);
   };
 
   Vector.prototype.dotProduct = function(other) {
@@ -44,6 +44,10 @@ var Vector = (function(){
 
   Vector.prototype.toString = function(){
     return "Vector(" + this.x + ", " + this.y + ")";
+  };
+
+  Vector.prototype.clone = function() {
+    return new Vector(this.x, this.y);
   };
 
   return Vector;
