@@ -59,4 +59,6 @@ var Vector = (function(){
   return Vector;
 })();
 
-(exports || {}).Vector = Vector;
+if(typeof exports !== typeof undefined){
+  exports.Vector = Vector;
+}
