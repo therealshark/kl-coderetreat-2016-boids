@@ -1,0 +1,23 @@
+{
+  "name": "kl-coderetreat-2016-boids",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^3.1.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therealshark/kl-coderetreat-2016-boids.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/therealshark/kl-coderetreat-2016-boids/issues"
+  },
+  "homepage": "https://github.com/therealshark/kl-coderetreat-2016-boids#readme"
+}
