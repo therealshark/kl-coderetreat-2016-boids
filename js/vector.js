@@ -42,6 +42,10 @@ var Vector = (function(){
     return Math.acos(this.dotProduct(other) / (this.length() * other.length()));
   };
 
+  Vector.prototype.toString = function(){
+    return "Vector(" + this.x + ", " + this.y + ")";
+  };
+
   return Vector;
 })();
 
