@@ -36,11 +36,14 @@ var Vector = (function(){
   };
 
   Vector.prototype.angle = function() {
-    return Math.atan2(this.y,this.x) //+ Math.PI;
+    var angle = Math.atan2(this.y, this.x);   //radians
+    angle = (angle > 0 ? angle : (2*Math.PI + angle)) * 360 / (2*Math.PI);
   };
 
   Vector.prototype.angleBetween = function(other) {
-    return Math.acos(this.dotProduct(other) / (this.length() * other.length()));
+    var deltaY = other.y - this.y;
+    var deltaX = other.x - this.x;
+    return Math.atan2(deltaY, deltaX) * (Math.PI/180);
   };
 
   Vector.prototype.normalize = function(result) {
