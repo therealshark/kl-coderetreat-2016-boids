@@ -17,7 +17,7 @@ var Renderer = (function(){
       ctx.fillRect(boid.position.x - 2, boid.position.y - 2, 4, 4);
       ctx.beginPath();
       ctx.moveTo(boid.position.x, boid.position.y);
-      var direction = boid.position.add(boid.speed.multiplyScalar(20));
+      var direction = boid.position.add(boid.speed.normalize().multiplyScalar(20));
       ctx.lineTo(direction.x, direction.y);
       ctx.stroke();
       var angle = boid.speed.angle();
