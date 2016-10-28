@@ -19,7 +19,7 @@ var Boid = (function(){
 
   Boid.prototype.updateSpeed = function(influencers) {
     //console.log(this.calculateSeperation(influencers));
-    var speed = this.speed.add(this.calculateSeperation(influencers).multiplyScalar(0.01));
+    var speed = this.speed.add(this.calculateSeperation(influencers).multiplyScalar(0.005));
     if(speed.length() > 3/2){
       speed = speed.normalize(speed).multiplyScalar(3/2, speed);
     }
@@ -32,7 +32,7 @@ var Boid = (function(){
 
   Boid.prototype.calculateSeperation = function(influencers){
     return influencers
-      .filter(influencer => influencer.position.distance(this.position) <= 20)
+      .filter(influencer => influencer.position.distance(this.position) <= 30)
       .map(influencer => this.position.subtract(influencer.position).multiplyScalar(0.2))
       .reduce((curr, before) => curr.add(before), new Vector(0, 0));
   };

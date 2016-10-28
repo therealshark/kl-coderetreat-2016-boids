@@ -25,7 +25,7 @@ var Simulation = (function(){
 
   function initialize() {
     // Creating some boids
-    for(var i = 0; i < 50; i++){
+    for(var i = 0; i < 100; i++){
       boids.push(new Boid());
     }
     Renderer.initialize();
