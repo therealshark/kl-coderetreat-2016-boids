@@ -1,9 +1,8 @@
 'use strict';
 
 var Boid = (function(){
-  function Boid(simulation, position, speed){
-    this.simulation = simulation;
-    this.position = position || new Vector(0, 0);
+  function Boid(position, speed){
+    this.position = position || new Vector(400, 300);
     this.speed = speed || new Vector(Math.random() * 2 -1, Math.random() * 2 -1);
   }
 
@@ -11,7 +10,7 @@ var Boid = (function(){
     var influencers = this.getInfluencers(boids);
     // calculate influences
 
-    this.position += this.speed;
+    this.position.add(this.speed, this.position);
   };
 
   Boid.prototype.updateDirection = function() {

@@ -6,6 +6,7 @@ var Simulation = (function(){
 
   function tick() {
     boids.forEach(boid => boid.tick(boids));
+    Renderer.render(boids);
     if(running){
       window.requestAnimationFrame(tick);
     }
@@ -15,7 +16,6 @@ var Simulation = (function(){
     if(!running){
       running = true;
       tick();
-      Renderer.render(boids);
     }
   }
 
@@ -24,6 +24,10 @@ var Simulation = (function(){
   }
 
   function initialize() {
+    // Creating some boids
+    for(var i = 0; i < 10; i++){
+      boids.push(new Boid());
+    }
     Renderer.initialize();
     run();
   }

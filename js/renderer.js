@@ -1,15 +1,20 @@
 'use strict';
 
 var Renderer = (function(){
-  var ctx;
+  var ctx,
+    canvas;
 
   function initialize(){
-    var canvas = document.getElementById("canvas");
+    canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
   }
 
   function render(boids){
-
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    boids.forEach(boid => {
+      ctx.fillStyle = "black";
+      ctx.fillRect(boid.position.x, boid.position.y, 10, 10);
+    });
   }
 
   return {
