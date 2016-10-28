@@ -28,6 +28,30 @@ describe('Vector', function() {
         });
     });
 
+    describe('dotProduct()', function() {
+        it('should create scalar product', function() {
+            assert.equal(47, new Vector(3, 4).dotProduct(new Vector(5, 8)));
+        });
+    });
+
+    describe('angle()', function() {
+        it('should give the angle of the vector to x-axe', function() {
+            assert.equal(0, new Vector(1,0).angle());
+            assert.equal(Math.PI/2, new Vector(0,1).angle());
+            assert.equal(Math.PI, new Vector(-1,0).angle());
+            assert.equal(3*Math.PI/2, new Vector(0,-1).angle());
+        });
+    });
+
+    describe('angleBetween()', function() {
+        it('should give the angle of the vector to x-axe', function() {
+            assert.equal(0, new Vector(0,0).angleBetween(new Vector(1,0)));
+            assert.equal(Math.PI/2, new Vector(0,0).angleBetween(new Vector(0,1)));
+            assert.equal(Math.PI, new Vector(0,0).angleBetween(new Vector(-1,0)));
+            assert.equal(3*Math.PI/2, new Vector(0,0).angleBetween(new Vector(0,-1)));
+        });
+    });
+
     describe('normalize', function() {
         it('should normalize the vector, creating new Vector', function() {
             assert.equal(1, new Vector(7, 4).normalize().length());
