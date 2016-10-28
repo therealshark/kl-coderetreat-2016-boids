@@ -1,8 +1,10 @@
 var assert = require('assert');
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal(-1, [1,2,3].indexOf(4));
+var Vector= require('../js/vector.js').Vector;
+
+describe('Vector', function() {
+  describe('length', function() {
+    it('should calculate the right length', function() {
+      assert.equal(new Vector(2, 0).length(), 2);
     });
   });
 });

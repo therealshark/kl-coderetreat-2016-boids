@@ -44,3 +44,5 @@ var Vector = (function(){
 
   return Vector;
 })();
+
+exports.Vector = Vector;
